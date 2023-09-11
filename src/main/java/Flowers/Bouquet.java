@@ -3,35 +3,22 @@ package Flowers;
 import java.util.Scanner;
 
 public class Bouquet {
-    static Flowers rose = new Flowers("Rose", 55, 50);
-    static Flowers lily = new Flowers("Lily", 100, 30);
-    static Flowers peony = new Flowers("Peony", 15, 20);
-    static Flowers popy = new Flowers("Popy", 10, 15);
-    static Flowers orchid = new Flowers("Orchid", 80, 50);
-    static int wallet = 150;
-    private static boolean hasEnoughMoneyToBuyFlower(){
-        boolean canBuy = false;
-        if (rose.getQuantity() > 0 && wallet > rose.getPrice()) canBuy = true;
-        if (lily.getQuantity() > 0 && wallet > lily.getPrice()) canBuy = true;
-        if (peony.getQuantity() > 0 && wallet > peony.getPrice()) canBuy = true;
-        if (popy.getQuantity() > 0 && wallet > popy.getPrice()) canBuy = true;
-        if (orchid.getQuantity() > 0 && wallet > orchid.getPrice()) canBuy = true;
-        return canBuy;
-    }
-    private static boolean hasEnoughQuantityOfFlowers(){
-      return rose.getQuantity() + lily.getQuantity() + peony.getQuantity() + popy.getQuantity() + orchid.getQuantity() > 0;
-    }
+    static Flower rose = new Flower("Rose", 55, 50);
+    static Flower lily = new Flower("Lily", 100, 30);
+    static Flower peony = new Flower("Peony", 15, 20);
+    static Flower popy = new Flower("Popy", 10, 15);
+    static Flower orchid = new Flower("Orchid", 80, 50);
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-        while (hasEnoughMoneyToBuyFlower() && hasEnoughQuantityOfFlowers()) {
+        int wallet = 1000;
+        while (hasEnoughMoneyToBuyFlower(wallet) && hasEnoughQuantityOfFlowers()) {
             System.out.println("Choose flower");
             String nameOfFlower = scanner.nextLine();
             System.out.println(nameOfFlower);
-            Flowers[] array = {rose, lily, peony, popy, orchid};
+            Flower[] array = {rose, lily, peony, popy, orchid};
             boolean found = false;
-            for (Flowers flower : array) {
+            for (Flower flower : array) {
                 if (found) break;
                 if (nameOfFlower.equals(flower.getName())) {
                     found = true;
@@ -52,4 +39,17 @@ public class Bouquet {
         }
     }
 
+    private static boolean hasEnoughMoneyToBuyFlower(int wallet) {
+        boolean canBuy = false;
+        if (rose.getQuantity() > 0 && wallet > rose.getPrice()) canBuy = true;
+        if (lily.getQuantity() > 0 && wallet > lily.getPrice()) canBuy = true;
+        if (peony.getQuantity() > 0 && wallet > peony.getPrice()) canBuy = true;
+        if (popy.getQuantity() > 0 && wallet > popy.getPrice()) canBuy = true;
+        if (orchid.getQuantity() > 0 && wallet > orchid.getPrice()) canBuy = true;
+        return canBuy;
+    }
+
+    private static boolean hasEnoughQuantityOfFlowers() {
+        return rose.getQuantity() + lily.getQuantity() + peony.getQuantity() + popy.getQuantity() + orchid.getQuantity() > 0;
+    }
 }

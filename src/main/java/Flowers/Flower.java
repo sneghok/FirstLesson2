@@ -1,7 +1,11 @@
 package Flowers;
 
-public class Flowers {
-    public Flowers(String name, int quantity, int price) {
+public class Flower {
+
+    private String name;
+    private int quantity;
+    private int price;
+    public Flower(String name, int quantity, int price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
@@ -31,7 +35,4 @@ public class Flowers {
         this.price = price;
     }
 
-    private String name;
-    private int quantity;
-    private int price;
 }
