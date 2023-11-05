@@ -26,8 +26,8 @@ public class MontyHall {
             }
         }
 
-        System.out.println("Послу " + totalGames + " игор:");
-        System.out.println("Сменив вибор:");
+        System.out.println("После " + totalGames + " игр:");
+        System.out.println("Сменив выбор:");
         System.out.println("Выйгрыши: " + switchWins);
         System.out.println("Проигрыши: " + (totalGames - switchWins));
         System.out.println("Процент выйгрышей: " + ((double) switchWins / totalGames * 100) + "%");
